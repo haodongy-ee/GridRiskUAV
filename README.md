@@ -1,4 +1,4 @@
-# GridRiskUAV v0.2
+# GridRiskUAV
 
 Risk-aware route planning baselines for power-grid UAV inspection.
 
