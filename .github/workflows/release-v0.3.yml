@@ -1,0 +1,24 @@
+name: Publish v0.3
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  publish:
+    if: github.event.head_commit.message == 'Release GridRiskUAV v0.3'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Reconstruct and verify experiment archive
+        run: |
+          cat release-data/GridRiskUAV_v0.3_results.zip.part-0* > GridRiskUAV_v0.3_results.zip
+          echo '29ed92a50ad8228853f125263a3fd4e6bbf203abd4975e5b37a0d2a6d9f31457  GridRiskUAV_v0.3_results.zip' | sha256sum --check
+      - name: Create GitHub release and tag
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create v0.3 GridRiskUAV_v0.3_results.zip \
+            --target "$GITHUB_SHA" \
+            --title "GridRiskUAV v0.3" \
+            --notes-file results/v0.3/REPORT.md
