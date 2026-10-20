@@ -31,7 +31,7 @@ def _greedy(scenario: Scenario, name: str, score: Score) -> PlanResult:
         feasible: list[tuple[tuple[float, ...], Task, float]] = []
         for task in remaining:
             marginal = _marginal_cost(scenario, current, task)
-            if committed_cost + marginal <= scenario.budget + 1e-9:
+            if scenario.is_feasible([*route, task.task_id]):
                 feasible.append((score(scenario, current, task, marginal), task, marginal))
         if not feasible:
             break
@@ -71,6 +71,14 @@ def risk_aware_greedy(scenario: Scenario) -> PlanResult:
 
 def optimal_dp(scenario: Scenario, max_tasks: int = 18) -> PlanResult:
     """Exact resource-constrained orienteering via Held-Karp subset DP."""
+    if (
+        scenario.max_flight_distance < inf
+        or scenario.battery_capacity < inf
+        or scenario.max_flight_exposure < inf
+    ):
+        return PlanResult("optimal_dp", (), float("nan"), float("nan"), float("nan"),
+                          float("nan"), float("nan"), float("nan"), 0.0,
+                          status="skipped_resource_constraints")
     if len(scenario.tasks) > max_tasks:
         return PlanResult(
             algorithm="optimal_dp",
@@ -150,10 +158,76 @@ def optimal_dp(scenario: Scenario, max_tasks: int = 18) -> PlanResult:
     return build_result(scenario, "optimal_dp", route, elapsed)
 
 
+def _two_opt(scenario: Scenario, route: list[int]) -> list[int]:
+    """Shorten the tour without changing its selected tasks."""
+    improved = route[:]
+    for _ in range(2):
+        best_cost = scenario.route_cost(improved)
+        best_route = improved
+        for i in range(len(improved) - 1):
+            for j in range(i + 2, len(improved) + 1):
+                candidate = improved[:i] + list(reversed(improved[i:j])) + improved[j:]
+                cost = scenario.route_cost(candidate)
+                if cost < best_cost - 1e-9 and scenario.is_feasible(candidate):
+                    best_cost, best_route = cost, candidate
+        if best_route == improved:
+            break
+        improved = best_route
+    return improved
+
+
+def local_search(scenario: Scenario) -> PlanResult:
+    """Multi-start insertion, 2-opt and one-for-one exchanges for larger instances."""
+    started = perf_counter()
+    utility = {t.task_id: t.value + scenario.risk_weight * t.risk for t in scenario.tasks}
+    seeds = [nearest(scenario).route, reward_per_cost(scenario).route, risk_aware_greedy(scenario).route]
+    best_route: list[int] = []
+    best_rank = (0.0, 0.0)
+    for seed in seeds:
+        route = _two_opt(scenario, list(seed))
+        for _ in range(3):
+            changed = False
+            remaining = [t.task_id for t in scenario.tasks if t.task_id not in route]
+            # Evaluate all insertion positions, prioritizing objective increase.
+            best_insert: tuple[float, float, list[int]] | None = None
+            for task_id in remaining:
+                for position in range(len(route) + 1):
+                    candidate = route[:position] + [task_id] + route[position:]
+                    if scenario.is_feasible(candidate):
+                        rank = (utility[task_id], -scenario.route_cost(candidate))
+                        if best_insert is None or rank > best_insert[:2]:
+                            best_insert = (*rank, candidate)
+            if best_insert is not None:
+                route = _two_opt(scenario, best_insert[2])
+                changed = True
+            else:
+                best_swap: tuple[float, float, list[int]] | None = None
+                for task_id in remaining:
+                    for position, outgoing in enumerate(route):
+                        gain = utility[task_id] - utility[outgoing]
+                        if gain <= 1e-9:
+                            continue
+                        candidate = route[:position] + [task_id] + route[position + 1:]
+                        if scenario.is_feasible(candidate):
+                            rank = (gain, -scenario.route_cost(candidate))
+                            if best_swap is None or rank > best_swap[:2]:
+                                best_swap = (*rank, candidate)
+                if best_swap is not None:
+                    route = _two_opt(scenario, best_swap[2])
+                    changed = True
+            if not changed:
+                break
+        rank = (sum(utility[task_id] for task_id in route), -scenario.route_cost(route))
+        if rank > best_rank:
+            best_rank, best_route = rank, route
+    return build_result(scenario, "local_search", best_route, (perf_counter() - started) * 1000)
+
+
 ALGORITHMS = {
     "nearest": nearest,
     "reward_per_cost": reward_per_cost,
     "risk_aware_greedy": risk_aware_greedy,
+    "local_search": local_search,
     "optimal_dp": optimal_dp,
 }
 

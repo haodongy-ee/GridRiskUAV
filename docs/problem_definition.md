@@ -1,61 +1,46 @@
-# Mathematical problem definition
+# GridRiskUAV v0.3 mathematical model
 
-## Data
+The UAV departs from depot 0, visits an ordered subset of tasks \(V=\{1,\dots,n\}\), and returns to 0. Task \(i\) has inspection value \(v_i\ge0\), asset risk \(r_i\ge0\), and service time \(s_i\ge0\). Asset risk is the risk captured by inspection. The decision weight \(\lambda\ge0\) controls its importance.
 
-Let the depot be node 0 and candidate inspection tasks be
-\(V=\{1,\ldots,n\}\). Task \(i\) has inspection value \(v_i\ge 0\), risk
-score \(r_i\ge 0\), and service time \(s_i\ge 0\). Travel time between nodes
-is \(t_{ij}=d_{ij}/q\), where \(d_{ij}\) is Euclidean distance and \(q>0\) is
-UAV speed. The sortie time budget is \(B\), and \(\lambda\ge 0\) controls the
-importance of capturing grid risk.
-
-Here, risk is a priority benefit: inspecting a high-risk asset captures more
-risk. If later work introduces flight-path hazard, it should be represented by
-a separate edge exposure term rather than overloading \(r_i\).
-
-## Decision variables
-
-- \(x_i\in\{0,1\}\): task \(i\) is inspected.
-- \(y_{ij}\in\{0,1\}\): the route directly travels from node \(i\) to node \(j\).
-- \(u_i\): visit-order variable used to eliminate subtours.
-
-## Objective
-
-The primary objective is
+For a route \(P=(0,i_1,\dots,i_k,0)\), the objective is
 
 \[
-\max \sum_{i\in V}(v_i+\lambda r_i)x_i.
+\max_P U(P)=\sum_{i\in P\setminus\{0\}}(v_i+\lambda r_i).
 \]
 
-Reported metrics keep raw inspection value and captured risk separate so that
-results remain interpretable for different values of \(\lambda\).
+Each task appears at most once. The empty route is feasible. A full trip, including the final return, must satisfy all active limits below.
 
-## Constraints
+## Flight resources
 
-For every task \(i\in V\):
+Let \(d_{ij}\) be Euclidean edge length, \(q>0\) UAV speed, and \(w\ge1\) the weather travel multiplier. Let \(B\) be the sortie time budget, \(D_{\max}\) the maximum flight distance, \(C\) battery capacity, \(C_{\mathrm{reserve}}\) the required landing reserve, and \(e_d>0\) battery consumption per distance unit.
 
 \[
-\sum_{j\in V\cup\{0\},j\ne i}y_{ij}=x_i,\qquad
-\sum_{j\in V\cup\{0\},j\ne i}y_{ji}=x_i.
+T(P)=\sum_{(i,j)\in P}w d_{ij}/q+\sum_{i\in P\setminus\{0\}}s_i\le B,
 \]
-
-The depot has one departure and one return when at least one task is selected.
-Standard MTZ order constraints eliminate disconnected subtours. The resource
-constraint is
 
 \[
-\sum_{i\ne j}t_{ij}y_{ij}+\sum_{i\in V}s_ix_i\le B.
+D(P)=\sum_{(i,j)\in P}d_{ij}\le D_{\max},\qquad
+e_d D(P)\le C-C_{\mathrm{reserve}}.
 \]
 
-Each task is visited at most once. A feasible route starts and ends at the
-depot. The empty route is allowed and has zero cost.
+The battery model is deliberately simple and transparent. Future calibration can replace distance-based consumption with a measured energy model.
 
-## Evaluation metrics
+## Flight-path hazard
 
-- **task coverage**: \(\sum_i x_i/n\).
-- **captured risk**: \(\sum_i r_i x_i\).
-- **risk coverage**: captured risk divided by total scenario risk.
-- **route cost**: travel time plus service time, including the final return.
-- **runtime**: wall-clock planning time measured with a monotonic high-resolution clock.
-- **objective**: captured inspection value plus \(\lambda\) times captured risk.
+Flight hazard is separate from asset risk. Each circular hazard zone \(z\) has a center, radius, and nonnegative severity \(h_z\). For a straight edge \((i,j)\), \(\ell_{ij,z}\) is the exact length of its intersection with zone \(z\). Exposure is
 
+\[
+E(P)=\sum_{(i,j)\in P}\sum_z h_z\ell_{ij,z}\le E_{\max}.
+\]
+
+Intersecting zones add exposure. This is a screening model, not a certified collision or no-fly-zone planner. Wind and weather currently affect travel time through \(w\); actual weather constraints need field data.
+
+## Algorithms and reported metrics
+
+`nearest`, `reward_per_cost`, `risk_aware_greedy`, and `local_search` enforce all active resource limits before accepting a route. `local_search` starts from the three constructive routes, shortens each with 2-opt, then tries feasible insertions and one-for-one exchanges. Its result cannot be worse in objective than the best of those three starts.
+
+`optimal_dp` is exact for the single time-budget model with at most 18 tasks. It is explicitly skipped when additional flight-resource limits are active. This avoids presenting a single-resource dynamic program as exact under multiple resources.
+
+Reported metrics are task coverage \(k/n\), captured asset risk \(\sum r_i\), risk coverage \(\sum_{i\in P}r_i/\sum_{i\in V}r_i\), route time \(T(P)\), route distance \(D(P)\), flight exposure \(E(P)\), utility \(U(P)\), and wall-clock planning runtime. When an exact solution exists, relative gap is \(\max(0,(U^*-U)/U^*)\). Gap is blank when no exact reference exists or \(U^*=0\).
+
+Confidence intervals in the batch report use \(\bar x\pm1.96s/\sqrt n\), where \(s\) is the sample standard deviation across independent scenario seeds. These are normal-approximation intervals, not bootstrap or field uncertainty bounds.

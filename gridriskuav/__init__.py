@@ -1,6 +1,6 @@
 """GridRiskUAV experiment package."""
 
-from .models import PlanResult, Scenario, Task
+from .models import HazardZone, PlanResult, Scenario, Task
 
-__all__ = ["Task", "Scenario", "PlanResult"]
+__all__ = ["Task", "HazardZone", "Scenario", "PlanResult"]
 

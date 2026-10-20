@@ -16,8 +16,8 @@ def build_result(
     if any(task_id not in by_id for task_id in route_tuple):
         raise ValueError("route contains an unknown task")
     route_cost = scenario.route_cost(route_tuple)
-    if route_cost > scenario.budget + 1e-9:
-        raise ValueError(f"infeasible route cost {route_cost:.6f} exceeds budget {scenario.budget:.6f}")
+    if not scenario.is_feasible(route_tuple):
+        raise ValueError("route violates time, range, battery or exposure constraint")
     selected = [by_id[task_id] for task_id in route_tuple]
     value = sum(task.value for task in selected)
     risk = sum(task.risk for task in selected)
@@ -32,5 +32,7 @@ def build_result(
         task_coverage=len(selected) / len(scenario.tasks) if scenario.tasks else 1.0,
         risk_coverage=risk / total_risk if total_risk else 1.0,
         runtime_ms=runtime_ms,
+        route_distance=scenario.route_distance(route_tuple),
+        flight_exposure=scenario.route_exposure(route_tuple),
     )
 

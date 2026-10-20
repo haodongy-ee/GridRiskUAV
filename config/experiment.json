@@ -1,0 +1,9 @@
+{
+  "task_counts": [10, 15, 20, 50, 100],
+  "risk_distributions": ["uniform", "hotspot", "bimodal"],
+  "risk_weights": [0.0, 0.5, 1.0, 2.0, 5.0],
+  "budget_factors": {"tight": 0.7, "medium": 1.0, "loose": 1.4},
+  "replicates": 20,
+  "base_seed": 20261020,
+  "exact_max_tasks": 18
+}

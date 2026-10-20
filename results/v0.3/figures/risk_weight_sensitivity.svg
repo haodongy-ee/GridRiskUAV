@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="600" viewBox="0 0 1000 600" role="img">
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#172033} .title{font-size:25px;font-weight:700}.label{font-size:15px}.small{font-size:12px} .grid{stroke:#dbe3ed;stroke-width:1}.axis{stroke:#52657a;stroke-width:1.5}</style>
+<text x="75.0" y="55.0" class="title" text-anchor="start">Risk coverage versus risk weight</text>
+<text x="75.0" y="79.0" class="small" text-anchor="start">50 tasks · medium budget · mean across all distributions</text>
+<line x1="85.0" y1="520.0" x2="695.0" y2="520.0" stroke="#dbe3ed" stroke-width="1"/>
+<text x="73.0" y="524.0" class="small" text-anchor="end">0%</text>
+<line x1="85.0" y1="442.0" x2="695.0" y2="442.0" stroke="#dbe3ed" stroke-width="1"/>
+<text x="73.0" y="446.0" class="small" text-anchor="end">20%</text>
+<line x1="85.0" y1="364.0" x2="695.0" y2="364.0" stroke="#dbe3ed" stroke-width="1"/>
+<text x="73.0" y="368.0" class="small" text-anchor="end">40%</text>
+<line x1="85.0" y1="286.0" x2="695.0" y2="286.0" stroke="#dbe3ed" stroke-width="1"/>
+<text x="73.0" y="290.0" class="small" text-anchor="end">60%</text>
+<line x1="85.0" y1="208.0" x2="695.0" y2="208.0" stroke="#dbe3ed" stroke-width="1"/>
+<text x="73.0" y="212.0" class="small" text-anchor="end">80%</text>
+<line x1="85.0" y1="130.0" x2="695.0" y2="130.0" stroke="#dbe3ed" stroke-width="1"/>
+<text x="73.0" y="134.0" class="small" text-anchor="end">100%</text>
+<text x="85.0" y="545.0" class="small" text-anchor="middle">0</text>
+<text x="146.0" y="545.0" class="small" text-anchor="middle">0.5</text>
+<text x="207.0" y="545.0" class="small" text-anchor="middle">1</text>
+<text x="329.0" y="545.0" class="small" text-anchor="middle">2</text>
+<text x="695.0" y="545.0" class="small" text-anchor="middle">5</text>
+<line x1="85.0" y1="453.7" x2="146.0" y2="453.7" stroke="#64748b" stroke-width="2.5"/>
+<line x1="146.0" y1="453.7" x2="207.0" y2="453.7" stroke="#64748b" stroke-width="2.5"/>
+<line x1="207.0" y1="453.7" x2="329.0" y2="453.7" stroke="#64748b" stroke-width="2.5"/>
+<line x1="329.0" y1="453.7" x2="695.0" y2="453.7" stroke="#64748b" stroke-width="2.5"/>
+<circle cx="85.0" cy="453.7" r="4.5" fill="#64748b" fill-opacity="1"/>
+<circle cx="146.0" cy="453.7" r="4.5" fill="#64748b" fill-opacity="1"/>
+<circle cx="207.0" cy="453.7" r="4.5" fill="#64748b" fill-opacity="1"/>
+<circle cx="329.0" cy="453.7" r="4.5" fill="#64748b" fill-opacity="1"/>
+<circle cx="695.0" cy="453.7" r="4.5" fill="#64748b" fill-opacity="1"/>
+<line x1="85.0" y1="464.4" x2="146.0" y2="464.4" stroke="#d97706" stroke-width="2.5"/>
+<line x1="146.0" y1="464.4" x2="207.0" y2="464.4" stroke="#d97706" stroke-width="2.5"/>
+<line x1="207.0" y1="464.4" x2="329.0" y2="464.4" stroke="#d97706" stroke-width="2.5"/>
+<line x1="329.0" y1="464.4" x2="695.0" y2="464.4" stroke="#d97706" stroke-width="2.5"/>
+<circle cx="85.0" cy="464.4" r="4.5" fill="#d97706" fill-opacity="1"/>
+<circle cx="146.0" cy="464.4" r="4.5" fill="#d97706" fill-opacity="1"/>
+<circle cx="207.0" cy="464.4" r="4.5" fill="#d97706" fill-opacity="1"/>
+<circle cx="329.0" cy="464.4" r="4.5" fill="#d97706" fill-opacity="1"/>
+<circle cx="695.0" cy="464.4" r="4.5" fill="#d97706" fill-opacity="1"/>
+<line x1="85.0" y1="464.4" x2="146.0" y2="455.1" stroke="#0d9488" stroke-width="2.5"/>
+<line x1="146.0" y1="455.1" x2="207.0" y2="444.7" stroke="#0d9488" stroke-width="2.5"/>
+<line x1="207.0" y1="444.7" x2="329.0" y2="439.7" stroke="#0d9488" stroke-width="2.5"/>
+<line x1="329.0" y1="439.7" x2="695.0" y2="432.7" stroke="#0d9488" stroke-width="2.5"/>
+<circle cx="85.0" cy="464.4" r="4.5" fill="#0d9488" fill-opacity="1"/>
+<circle cx="146.0" cy="455.1" r="4.5" fill="#0d9488" fill-opacity="1"/>
+<circle cx="207.0" cy="444.7" r="4.5" fill="#0d9488" fill-opacity="1"/>
+<circle cx="329.0" cy="439.7" r="4.5" fill="#0d9488" fill-opacity="1"/>
+<circle cx="695.0" cy="432.7" r="4.5" fill="#0d9488" fill-opacity="1"/>
+<line x1="85.0" y1="450.3" x2="146.0" y2="442.2" stroke="#2563eb" stroke-width="2.5"/>
+<line x1="146.0" y1="442.2" x2="207.0" y2="431.4" stroke="#2563eb" stroke-width="2.5"/>
+<line x1="207.0" y1="431.4" x2="329.0" y2="430.1" stroke="#2563eb" stroke-width="2.5"/>
+<line x1="329.0" y1="430.1" x2="695.0" y2="415.9" stroke="#2563eb" stroke-width="2.5"/>
+<circle cx="85.0" cy="450.3" r="4.5" fill="#2563eb" fill-opacity="1"/>
+<circle cx="146.0" cy="442.2" r="4.5" fill="#2563eb" fill-opacity="1"/>
+<circle cx="207.0" cy="431.4" r="4.5" fill="#2563eb" fill-opacity="1"/>
+<circle cx="329.0" cy="430.1" r="4.5" fill="#2563eb" fill-opacity="1"/>
+<circle cx="695.0" cy="415.9" r="4.5" fill="#2563eb" fill-opacity="1"/>
+<text x="390.0" y="570.0" class="label" text-anchor="middle">Risk weight λ</text>
+<rect x="750" y="81" width="17" height="17" fill="#64748b"/>
+<text x="775.0" y="94.0" class="small" text-anchor="start">Nearest</text>
+<rect x="750" y="107" width="17" height="17" fill="#d97706"/>
+<text x="775.0" y="120.0" class="small" text-anchor="start">Value / cost</text>
+<rect x="750" y="133" width="17" height="17" fill="#0d9488"/>
+<text x="775.0" y="146.0" class="small" text-anchor="start">Risk-aware greedy</text>
+<rect x="750" y="159" width="17" height="17" fill="#2563eb"/>
+<text x="775.0" y="172.0" class="small" text-anchor="start">Local search</text>
+</svg>

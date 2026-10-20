@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600" role="img">
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#172033} .title{font-size:25px;font-weight:700}.label{font-size:15px}.small{font-size:12px} .grid{stroke:#dbe3ed;stroke-width:1}.axis{stroke:#52657a;stroke-width:1.5}</style>
+<text x="50.0" y="52.0" class="title" text-anchor="start">Inspection route and asset risk</text>
+<text x="50.0" y="77.0" class="small" text-anchor="start">Reference 13-task scenario · local search · circular flight hazard</text>
+<line x1="204.0" y1="499.0" x2="204.0" y2="121.0" stroke="#e5edf5" stroke-width="1"/>
+<line x1="258.0" y1="499.0" x2="258.0" y2="121.0" stroke="#e5edf5" stroke-width="1"/>
+<line x1="312.0" y1="499.0" x2="312.0" y2="121.0" stroke="#e5edf5" stroke-width="1"/>
+<line x1="366.0" y1="499.0" x2="366.0" y2="121.0" stroke="#e5edf5" stroke-width="1"/>
+<line x1="420.0" y1="499.0" x2="420.0" y2="121.0" stroke="#e5edf5" stroke-width="1"/>
+<line x1="474.0" y1="499.0" x2="474.0" y2="121.0" stroke="#e5edf5" stroke-width="1"/>
+<line x1="528.0" y1="499.0" x2="528.0" y2="121.0" stroke="#e5edf5" stroke-width="1"/>
+<line x1="582.0" y1="499.0" x2="582.0" y2="121.0" stroke="#e5edf5" stroke-width="1"/>
+<line x1="636.0" y1="499.0" x2="636.0" y2="121.0" stroke="#e5edf5" stroke-width="1"/>
+<line x1="204.0" y1="472.0" x2="636.0" y2="472.0" stroke="#e5edf5" stroke-width="1"/>
+<line x1="204.0" y1="418.0" x2="636.0" y2="418.0" stroke="#e5edf5" stroke-width="1"/>
+<line x1="204.0" y1="364.0" x2="636.0" y2="364.0" stroke="#e5edf5" stroke-width="1"/>
+<line x1="204.0" y1="310.0" x2="636.0" y2="310.0" stroke="#e5edf5" stroke-width="1"/>
+<line x1="204.0" y1="256.0" x2="636.0" y2="256.0" stroke="#e5edf5" stroke-width="1"/>
+<line x1="204.0" y1="202.0" x2="636.0" y2="202.0" stroke="#e5edf5" stroke-width="1"/>
+<line x1="204.0" y1="148.0" x2="636.0" y2="148.0" stroke="#e5edf5" stroke-width="1"/>
+<circle cx="501" cy="283" r="54" fill="#dc2626" fill-opacity="0.12" stroke="#dc2626" stroke-dasharray="6 4"/>
+<line x1="420.0" y1="310.0" x2="474.0" y2="283.0" stroke="#2563eb" stroke-width="3"/>
+<line x1="474.0" y1="283.0" x2="528.0" y2="283.0" stroke="#2563eb" stroke-width="3"/>
+<line x1="528.0" y1="283.0" x2="501.0" y2="202.0" stroke="#2563eb" stroke-width="3"/>
+<line x1="501.0" y1="202.0" x2="447.0" y2="175.0" stroke="#2563eb" stroke-width="3"/>
+<line x1="447.0" y1="175.0" x2="366.0" y2="202.0" stroke="#2563eb" stroke-width="3"/>
+<line x1="366.0" y1="202.0" x2="312.0" y2="256.0" stroke="#2563eb" stroke-width="3"/>
+<line x1="312.0" y1="256.0" x2="420.0" y2="310.0" stroke="#2563eb" stroke-width="3"/>
+<circle cx="474.0" cy="283.0" r="8.0" fill="#b91c1c" fill-opacity="1"/>
+<text x="484.0" y="274.0" class="small" text-anchor="start">1 (9)</text>
+<circle cx="528.0" cy="283.0" r="8.0" fill="#b91c1c" fill-opacity="1"/>
+<text x="538.0" y="274.0" class="small" text-anchor="start">2 (8)</text>
+<circle cx="555.0" cy="229.0" r="5.0" fill="#b91c1c" fill-opacity="0.65"/>
+<text x="565.0" y="220.0" class="small" text-anchor="start">3 (7)</text>
+<circle cx="501.0" cy="202.0" r="8.0" fill="#b91c1c" fill-opacity="1"/>
+<text x="511.0" y="193.0" class="small" text-anchor="start">4 (7)</text>
+<circle cx="447.0" cy="175.0" r="8.0" fill="#f59e0b" fill-opacity="1"/>
+<text x="457.0" y="166.0" class="small" text-anchor="start">5 (6)</text>
+<circle cx="366.0" cy="202.0" r="8.0" fill="#f59e0b" fill-opacity="1"/>
+<text x="376.0" y="193.0" class="small" text-anchor="start">6 (6)</text>
+<circle cx="312.0" cy="256.0" r="8.0" fill="#f59e0b" fill-opacity="1"/>
+<text x="322.0" y="247.0" class="small" text-anchor="start">7 (6)</text>
+<circle cx="285.0" cy="337.0" r="5.0" fill="#f59e0b" fill-opacity="0.65"/>
+<text x="295.0" y="328.0" class="small" text-anchor="start">8 (5)</text>
+<circle cx="339.0" cy="391.0" r="5.0" fill="#f59e0b" fill-opacity="0.65"/>
+<text x="349.0" y="382.0" class="small" text-anchor="start">9 (5)</text>
+<circle cx="393.0" cy="445.0" r="5.0" fill="#64748b" fill-opacity="0.65"/>
+<text x="403.0" y="436.0" class="small" text-anchor="start">10 (4)</text>
+<circle cx="474.0" cy="418.0" r="5.0" fill="#64748b" fill-opacity="0.65"/>
+<text x="484.0" y="409.0" class="small" text-anchor="start">11 (4)</text>
+<circle cx="555.0" cy="391.0" r="5.0" fill="#64748b" fill-opacity="0.65"/>
+<text x="565.0" y="382.0" class="small" text-anchor="start">12 (4)</text>
+<circle cx="609.0" cy="310.0" r="5.0" fill="#64748b" fill-opacity="0.65"/>
+<text x="619.0" y="301.0" class="small" text-anchor="start">13 (3)</text>
+<circle cx="420.0" cy="310.0" r="10.0" fill="#172033" fill-opacity="1"/>
+<text x="433.5" y="323.5" class="small" text-anchor="start">Depot</text>
+<text x="690.0" y="155.0" class="label" text-anchor="start">Tasks inspected: 6/13</text>
+<text x="690.0" y="184.0" class="label" text-anchor="start">Captured risk: 42.0/74</text>
+<text x="690.0" y="213.0" class="label" text-anchor="start">Route time: 24.9/26</text>
+<text x="690.0" y="242.0" class="label" text-anchor="start">Flight distance: 20.1/30</text>
+<text x="690.0" y="271.0" class="label" text-anchor="start">Exposure: 7.7/8</text>
+</svg>

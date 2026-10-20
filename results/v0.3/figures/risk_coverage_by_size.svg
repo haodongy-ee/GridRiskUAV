@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="600" viewBox="0 0 1000 600" role="img">
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#172033} .title{font-size:25px;font-weight:700}.label{font-size:15px}.small{font-size:12px} .grid{stroke:#dbe3ed;stroke-width:1}.axis{stroke:#52657a;stroke-width:1.5}</style>
+<text x="75.0" y="55.0" class="title" text-anchor="start">Risk coverage by task count</text>
+<text x="75.0" y="79.0" class="small" text-anchor="start">Medium budget · risk weight 1 · mean across all distributions</text>
+<line x1="85.0" y1="520.0" x2="695.0" y2="520.0" stroke="#dbe3ed" stroke-width="1"/>
+<text x="73.0" y="525.0" class="small" text-anchor="end">0%</text>
+<line x1="85.0" y1="442.0" x2="695.0" y2="442.0" stroke="#dbe3ed" stroke-width="1"/>
+<text x="73.0" y="447.0" class="small" text-anchor="end">20%</text>
+<line x1="85.0" y1="364.0" x2="695.0" y2="364.0" stroke="#dbe3ed" stroke-width="1"/>
+<text x="73.0" y="369.0" class="small" text-anchor="end">40%</text>
+<line x1="85.0" y1="286.0" x2="695.0" y2="286.0" stroke="#dbe3ed" stroke-width="1"/>
+<text x="73.0" y="291.0" class="small" text-anchor="end">60%</text>
+<line x1="85.0" y1="208.0" x2="695.0" y2="208.0" stroke="#dbe3ed" stroke-width="1"/>
+<text x="73.0" y="213.0" class="small" text-anchor="end">80%</text>
+<line x1="85.0" y1="130.0" x2="695.0" y2="130.0" stroke="#dbe3ed" stroke-width="1"/>
+<text x="73.0" y="135.0" class="small" text-anchor="end">100%</text>
+<rect x="92.0" y="410.5" width="17.3" height="109.5" fill="#64748b"/>
+<rect x="112.3" y="424.1" width="17.3" height="95.9" fill="#d97706"/>
+<rect x="132.7" y="395.0" width="17.3" height="125.0" fill="#0d9488"/>
+<rect x="153.0" y="376.6" width="17.3" height="143.4" fill="#2563eb"/>
+<rect x="173.3" y="374.7" width="17.3" height="145.3" fill="#7c3aed"/>
+<text x="146.0" y="547.0" class="label" text-anchor="middle">10</text>
+<rect x="214.0" y="415.6" width="17.3" height="104.4" fill="#64748b"/>
+<rect x="234.3" y="425.7" width="17.3" height="94.3" fill="#d97706"/>
+<rect x="254.7" y="404.7" width="17.3" height="115.3" fill="#0d9488"/>
+<rect x="275.0" y="392.1" width="17.3" height="127.9" fill="#2563eb"/>
+<rect x="295.3" y="378.8" width="17.3" height="141.2" fill="#7c3aed"/>
+<text x="268.0" y="547.0" class="label" text-anchor="middle">15</text>
+<rect x="336.0" y="428.2" width="17.3" height="91.8" fill="#64748b"/>
+<rect x="356.3" y="430.9" width="17.3" height="89.1" fill="#d97706"/>
+<rect x="376.7" y="418.1" width="17.3" height="101.9" fill="#0d9488"/>
+<rect x="397.0" y="402.2" width="17.3" height="117.8" fill="#2563eb"/>
+<text x="390.0" y="547.0" class="label" text-anchor="middle">20</text>
+<rect x="458.0" y="453.7" width="17.3" height="66.3" fill="#64748b"/>
+<rect x="478.3" y="464.4" width="17.3" height="55.6" fill="#d97706"/>
+<rect x="498.7" y="444.7" width="17.3" height="75.3" fill="#0d9488"/>
+<rect x="519.0" y="431.4" width="17.3" height="88.6" fill="#2563eb"/>
+<text x="512.0" y="547.0" class="label" text-anchor="middle">50</text>
+<rect x="580.0" y="468.9" width="17.3" height="51.1" fill="#64748b"/>
+<rect x="600.3" y="475.9" width="17.3" height="44.1" fill="#d97706"/>
+<rect x="620.7" y="466.8" width="17.3" height="53.2" fill="#0d9488"/>
+<rect x="641.0" y="457.2" width="17.3" height="62.8" fill="#2563eb"/>
+<text x="634.0" y="547.0" class="label" text-anchor="middle">100</text>
+<line x1="85.0" y1="130.0" x2="85.0" y2="520.0" stroke="#52657a" stroke-width="1.5"/>
+<text x="390.0" y="570.0" class="label" text-anchor="middle">Number of tasks</text>
+<rect x="750" y="81" width="17" height="17" fill="#64748b"/>
+<text x="775.0" y="94.0" class="small" text-anchor="start">Nearest</text>
+<rect x="750" y="107" width="17" height="17" fill="#d97706"/>
+<text x="775.0" y="120.0" class="small" text-anchor="start">Value / cost</text>
+<rect x="750" y="133" width="17" height="17" fill="#0d9488"/>
+<text x="775.0" y="146.0" class="small" text-anchor="start">Risk-aware greedy</text>
+<rect x="750" y="159" width="17" height="17" fill="#2563eb"/>
+<text x="775.0" y="172.0" class="small" text-anchor="start">Local search</text>
+<rect x="750" y="185" width="17" height="17" fill="#7c3aed"/>
+<text x="775.0" y="198.0" class="small" text-anchor="start">Exact DP</text>
+</svg>
